@@ -3,9 +3,10 @@ import NewsItem from "./NewsItem";
 
 
 function NewsBoard({ category }) {
+    const apikey = 'b28366cdb2774506ac92f0542c523a2a';
     const [article, setArticle] = useState([]);
     useEffect(() => {
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=b28366cdb2774506ac92f0542c523a2a`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apikey}`;
         fetch(url).then(response => response.json()).then(data => setArticle(data.articles));
 
     }, [category])
